@@ -19,6 +19,8 @@ func TestScheduler(t *testing.T) {
 		{"every 100 milliseconds", 100 * time.Millisecond, 0},
 		{"every second", time.Second, 0},
 		{"every 10 seconds", 10 * time.Second, 0},
+		{"every minute", time.Minute, 0},
+		{"every 10 minutes", 10 * time.Minute, 0},
 		{"every hour", time.Hour, 0},
 	}
 

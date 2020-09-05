@@ -31,9 +31,8 @@ func New(opts ...Option) *Scheduler {
 
 	scheduler := &Scheduler{
 		paused:    true,
-		rewind:    false,
 		clock:     0,
-		rate:      16 * time.Millisecond,
+		rate:      time.Hour,
 		nextClock: map[time.Duration]time.Duration{},
 		handlers:  options.handlers,
 	}
@@ -55,7 +54,7 @@ func (scheduler *Scheduler) Clone() *Scheduler {
 		paused:    true,
 		clock:     0,
 		rate:      scheduler.rate,
-		nextClock: map[time.Duration]time.Duration{},
+		nextClock: scheduler.nextClock,
 		handlers:  scheduler.handlers,
 	}
 }
